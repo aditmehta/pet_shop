@@ -1,0 +1,42 @@
+$font-color: #e74c3c;
+$bg-color: #bdc3c7;
+
+html, body {
+  background-color: $bg-color;
+  color: $font-color;
+}
+
+#image-gallery {
+  .item {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+
+    .slide{
+      background-color: black;
+      color: $bg-color;
+      margin: 0 -15px;
+      padding: 20px 0;
+      text-align: center;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in;
+      font-family: 'Cinzel Decorative', cursive;
+    }
+
+    &:hover {
+      .slide {
+        transform: translateY(0);
+      }
+    }
+
+
+    @for $i from 1 through 12 {
+      &.item-#{$i} {
+        background-image: url("../Images/animal#{$i}.jpg")
+      }
+    }
+  }
+}  
